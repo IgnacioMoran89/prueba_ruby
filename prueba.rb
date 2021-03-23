@@ -1,6 +1,4 @@
-hash = // 20210322204513
-// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
-
+hash =
 {
   "photos": [
     {
@@ -16269,3 +16267,27 @@ hash = // 20210322204513
     }
   ]
 }
+
+
+
+def build_web_page(hash)
+
+  ​
+  pagina = '<html>
+            <head>
+            </head>
+            <body>
+            <ul>'
+
+
+  
+  
+  pagina +='</ul>
+            </body>
+            </html>'
+
+  
+  
+  File.write('index.html', pagina)
+
+end 
