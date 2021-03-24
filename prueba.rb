@@ -1,3 +1,4 @@
+
 hash =
 {
   "photos": [
@@ -16268,26 +16269,36 @@ hash =
   ]
 }
 
+def build_web_page (hash)
+    pagina = "<html>\n
+              <head>\n
+              </head>\n
+              <body>\n
+              <ul>\n"
+    hash.each do |k,v| #itera para acceder a valores del primer hash
+      v
+        v.each do |i| #itera para acceder al array dentro del hash
+        i
+            i.each do |s,t| #itera para acceder al hash dentro del array donde están las imágenes
+              pagina += "<li><img src=\"#{i[:img_src]}\"> </li>\n"
+            end 
+        end 
+    end
 
+    pagina +="</ul>\n
+              </body>\n
+              </html>\n"
 
-def build_web_page(hash)
-
-  ​
-  pagina = '<html>
-            <head>
-            </head>
-            <body>
-            <ul>'
-
-
-  
-  
-  pagina +='</ul>
-            </body>
-            </html>'
-
-  
-  
-  File.write('index.html', pagina)
+    File.write('index.html', pagina)
 
 end 
+
+build_web_page(hash)
+
+  
+
+
+
+
+
+
