@@ -16278,7 +16278,7 @@ def build_web_page (hash)
     hash.each do |k,v| #itera para acceder a valores del primer hash
       v
         v.each do |i| #itera para acceder al array dentro del hash
-        i
+          i
             i.each do |s,t| #itera para acceder al hash dentro del array donde están las imágenes
               pagina += "<li><img src=\"#{i[:img_src]}\"> </li>\n"
             end 
@@ -16295,9 +16295,10 @@ end
 
 build_web_page(hash)
 
-  
 
+def photos_count (hash)
 
+end 
 
 
 
