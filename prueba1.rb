@@ -13,19 +13,21 @@ def get_data(endpoint)
     response = http.request(request)
 
     return JSON.parse(response.read_body)
-
+    get_data("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=bTsg6AhHD0oLqNhZurmkdv1S84UDpSDloeeWkwpk")
 end 
 
 
-def build_web_page(request)
-    photos = data.map{|x| x['img_src']}
+
+
+def build_web_page(get_data)
+    photos = get_data.map{|x| x['img_src']}
 
     pagina = "<html>\n
     <head>\n
     </head>\n
     <body>\n
     <ul>\n"
-    photos.each do |photo| #itera para acceder a valores del primer hash
+    photos.each do |photo| 
          pagina += "<li><img src=\"#{photo}\"> </li>\n"
     end 
             
@@ -33,7 +35,12 @@ def build_web_page(request)
     </body>\n
     </html>\n"
 
-    File.write('index.html', pagina)
-end 
+ 
 
-get_data("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY")
+    File.write('index1.html', pagina)
+end 
+ 
+
+build_web_page(get_data("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=bTsg6AhHD0oLqNhZurmkdv1S84UDpSDloeeWkwpk")['photos'])
+
+
